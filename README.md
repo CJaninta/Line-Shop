@@ -1,5 +1,7 @@
 # Little Brown Book Shop
 
+## `** Took time 22 hours with beginner knowledge and my endeavor. **`
+
 ## Personal Information
 
 Please provide all information in English.
