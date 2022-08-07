@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - ./go.mod:/src/go/go.mod
+      - ./go.sum:/src/go/go.sum
+      - ./:/src/go
+    working_dir: /src/go
+    ports:
+      - "8080:8080"
+    command: reflex -r '(\.go$$)' -s go run main.go
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    container_name: mongo-database
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: little_brown_book_shop
+    ports:
+      - 27017:27017
+    restart: always
+    volumes:
+      - mongodb:/data/db
+
+volumes:
+  mongodb:

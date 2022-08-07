@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "801a3169-f2a5-4e75-9fdc-9eb7b88dbb49",
+		"name": "Line POS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10449064"
+	},
+	"item": [
+		{
+			"name": "Post book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"book10\",\r\n    \"price\": 400,\r\n    \"description\": \"description here\",\r\n    \"rating\": 1,\r\n    \"author\": \"J.K. Rolling Test10\",\r\n    \"images\": {\r\n        \"jpeg\": \"https://vos.line-scdn.net/assignment/book-shop/jpeg/harry-10.jpeg\",\r\n        \"avif\": \"https://vos.line-scdn.net/assignment/book-shop/avif/harry-10.avif\",\r\n        \"webp\": \"https://vos.line-scdn.net/assignment/book-shop/webp/harry-10.webp\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/books",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/books",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/search?query=1",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post promotion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"MULTI_HARRY\",\r\n    \"name\": \"Buy multiple harry potter volume\",\r\n    \"targetIds\": [\r\n        \"62efc0a108dff00876cbfa9c\",\r\n        \"62efc0d008dff00876cbfa9d\"\r\n    ],\r\n    \"discounts\": [\r\n        \"10.00\",\r\n        \"11.00\",\r\n        \"12.00\",\r\n        \"13.00\",\r\n        \"14.00\",\r\n        \"15.00\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/promotions",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"promotions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get promotions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/promotions",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"promotions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"62efc0d008dff00876cbfa9d\",\r\n  \"quantity\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/orders",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout orders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"62efc0de08dff00876cbfa9e\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/orders/checkout",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/orders/summary",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"summary"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
